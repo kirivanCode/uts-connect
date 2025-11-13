@@ -69,31 +69,51 @@ const Auth = () => {
     }
     navigate("/");
   };
+   
   return (
-    <div 
-      className="min-h-screen flex items-center justify-center p-6 bg-cover bg-center"
-      style={{
-        backgroundImage: `url('https://productosgourmet.online/blog/wp-content/uploads/2017/04/como-distinguir-un-buen-cafe-1.png')`
-      }}
-    >
-      <div className="w-full max-w-md mx-auto">
-        <div className="text-center mb-6">
-          <div className="inline-flex w-16 h-16 items-center justify-center bg-primary rounded-xl mb-3">
-            <GraduationCap className="w-8 text-white" />
+    <div className="min-h-screen flex">
+      {/* Imagen izquierda */}
+      <div 
+        className="hidden lg:flex lg:w-1/2 bg-cover bg-center"
+        style={{
+          backgroundImage: `url('https://i.pinimg.com/originals/3d/16/e8/3d16e8f6e620a775285538330113d013.png')`
+        }}
+      />
+
+      {/* Formulario derecha */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-6 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="w-full max-w-md mx-auto">
+          <div className="text-center mb-8">
+            <div className="inline-flex w-20 h-20 items-center justify-center bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl mb-4 shadow-lg">
+              <GraduationCap className="w-10 h-10 text-white" />
+            </div>
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              RappiUts
+            </h1>
+            <p className="text-gray-600 text-sm mt-2">Bienvenido de vuelta</p>
           </div>
-          <h1 className="text-2xl font-bold">RappiUts</h1>
-        </div>
 
-        <Card>
-          <CardHeader>
-            <Tabs value={active} onValueChange={setActive}>
-              <TabsList className="grid grid-cols-2">
-                <TabsTrigger value="login">Iniciar Sesión</TabsTrigger>
-                <TabsTrigger value="register">Registrarse</TabsTrigger>
-              </TabsList>
-            </Tabs>
-          </CardHeader>
+          <Card className="shadow-xl border-0">
+            <CardHeader className="pb-4">
+              <Tabs value={active} onValueChange={setActive}>
+                <TabsList className="grid grid-cols-2 bg-gray-100 p-1">
+                  <TabsTrigger 
+                    value="login" 
+                    className="data-[state=active]:bg-white data-[state=active]:shadow-sm"
+                  >
+                    Iniciar Sesión
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="register"
+                    className="data-[state=active]:bg-white data-[state=active]:shadow-sm"
+                  >
+                    Registrarse
+                  </TabsTrigger>
+                </TabsList>
+              </Tabs>
+            </CardHeader>
 
+            <CardContent className="pt-2"></CardContent>
           <CardContent>
             {error && (
               <p className="text-red-500 text-sm text-center mb-4">
@@ -220,6 +240,7 @@ const Auth = () => {
       </div>
 
     </div>
+  </div>
   );
 };
 
